@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CircleA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="firstNumber" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CircleAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CircleAResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TriangleA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="firstNumber" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="secondNumber" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="TriangleAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="TriangleAResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SquareA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="firstNumber" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SquareAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SquareAResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RectangleA">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="firstNumber" type="s:double" />
+            <s:element minOccurs="1" maxOccurs="1" name="secondNumber" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RectangleAResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="RectangleAResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConvertToBraille">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="text" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ConvertToBrailleResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ConvertToBrailleResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CircleASoapIn">
+    <wsdl:part name="parameters" element="tns:CircleA" />
+  </wsdl:message>
+  <wsdl:message name="CircleASoapOut">
+    <wsdl:part name="parameters" element="tns:CircleAResponse" />
+  </wsdl:message>
+  <wsdl:message name="TriangleASoapIn">
+    <wsdl:part name="parameters" element="tns:TriangleA" />
+  </wsdl:message>
+  <wsdl:message name="TriangleASoapOut">
+    <wsdl:part name="parameters" element="tns:TriangleAResponse" />
+  </wsdl:message>
+  <wsdl:message name="SquareASoapIn">
+    <wsdl:part name="parameters" element="tns:SquareA" />
+  </wsdl:message>
+  <wsdl:message name="SquareASoapOut">
+    <wsdl:part name="parameters" element="tns:SquareAResponse" />
+  </wsdl:message>
+  <wsdl:message name="RectangleASoapIn">
+    <wsdl:part name="parameters" element="tns:RectangleA" />
+  </wsdl:message>
+  <wsdl:message name="RectangleASoapOut">
+    <wsdl:part name="parameters" element="tns:RectangleAResponse" />
+  </wsdl:message>
+  <wsdl:message name="ConvertToBrailleSoapIn">
+    <wsdl:part name="parameters" element="tns:ConvertToBraille" />
+  </wsdl:message>
+  <wsdl:message name="ConvertToBrailleSoapOut">
+    <wsdl:part name="parameters" element="tns:ConvertToBrailleResponse" />
+  </wsdl:message>
+  <wsdl:portType name="CalculatorWebServiceSoap">
+    <wsdl:operation name="CircleA">
+      <wsdl:input message="tns:CircleASoapIn" />
+      <wsdl:output message="tns:CircleASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="TriangleA">
+      <wsdl:input message="tns:TriangleASoapIn" />
+      <wsdl:output message="tns:TriangleASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SquareA">
+      <wsdl:input message="tns:SquareASoapIn" />
+      <wsdl:output message="tns:SquareASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RectangleA">
+      <wsdl:input message="tns:RectangleASoapIn" />
+      <wsdl:output message="tns:RectangleASoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ConvertToBraille">
+      <wsdl:input message="tns:ConvertToBrailleSoapIn" />
+      <wsdl:output message="tns:ConvertToBrailleSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CalculatorWebServiceSoap" type="tns:CalculatorWebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CircleA">
+      <soap:operation soapAction="http://tempuri.org/CircleA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TriangleA">
+      <soap:operation soapAction="http://tempuri.org/TriangleA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SquareA">
+      <soap:operation soapAction="http://tempuri.org/SquareA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RectangleA">
+      <soap:operation soapAction="http://tempuri.org/RectangleA" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConvertToBraille">
+      <soap:operation soapAction="http://tempuri.org/ConvertToBraille" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CalculatorWebServiceSoap12" type="tns:CalculatorWebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CircleA">
+      <soap12:operation soapAction="http://tempuri.org/CircleA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TriangleA">
+      <soap12:operation soapAction="http://tempuri.org/TriangleA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SquareA">
+      <soap12:operation soapAction="http://tempuri.org/SquareA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RectangleA">
+      <soap12:operation soapAction="http://tempuri.org/RectangleA" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConvertToBraille">
+      <soap12:operation soapAction="http://tempuri.org/ConvertToBraille" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CalculatorWebService">
+    <wsdl:port name="CalculatorWebServiceSoap" binding="tns:CalculatorWebServiceSoap">
+      <soap:address location="http://localhost:50985/CalculatorWebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CalculatorWebServiceSoap12" binding="tns:CalculatorWebServiceSoap12">
+      <soap12:address location="http://localhost:50985/CalculatorWebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

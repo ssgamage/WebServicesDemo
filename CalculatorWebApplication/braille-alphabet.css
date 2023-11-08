@@ -1,0 +1,19 @@
+﻿<style >
+/* Style the container for the Braille alphabet */
+.braille-alphabet {
+    font-size: 24px; /* Adjust the font size to change the overall size */
+    line-height: 24px; /* Match the line height to the font size for proper alignment */
+}
+
+/* Style the individual Braille dots */
+.braille-dot {
+    width: 16px; /* Adjust the dot size as needed */
+    height: 16px; /* Adjust the dot size as needed */
+    background-color: black; /* Dot color */
+    border-radius: 50%; /* Make the dot circular */
+    display: inline-block; /* Display dots inline with each other */
+    margin: 0 4px; /* Adjust the horizontal spacing between dots */
+    margin-bottom: 4px; /* Adjust the vertical spacing between dots */
+}
+
+</style >
