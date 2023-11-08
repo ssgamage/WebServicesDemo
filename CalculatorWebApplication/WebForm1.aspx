@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <link rel="stylesheet" type="text/css" href="braille-alphabet.css" />
-    <title>Area Calculator</title>
+    <title>S/A Project</title>
 </head>
 <body>
     <form id="form1" runat="server">
