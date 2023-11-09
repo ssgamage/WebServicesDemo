@@ -76,6 +76,9 @@
     <Content Include="Connected Services\CalculatorService\CalculatorWebApplication.CalculatorService.ConvertToBrailleResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <Content Include="Connected Services\CalculatorService\CalculatorWebApplication.CalculatorService.GetValueCountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\CalculatorService\configuration91.svcinfo" />
     <None Include="Connected Services\CalculatorService\configuration.svcinfo" />
     <None Include="Connected Services\CalculatorService\Reference.svcmap">

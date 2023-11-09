@@ -45,6 +45,13 @@ namespace CalculatorWebApplication.CalculatorService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ConvertToBraille", ReplyAction="*")]
         System.Threading.Tasks.Task<CalculatorWebApplication.CalculatorService.ConvertToBrailleResponse> ConvertToBrailleAsync(CalculatorWebApplication.CalculatorService.ConvertToBrailleRequest request);
+        
+        // CODEGEN: Generating message contract since element name text from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetValueCount", ReplyAction="*")]
+        CalculatorWebApplication.CalculatorService.GetValueCountResponse GetValueCount(CalculatorWebApplication.CalculatorService.GetValueCountRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetValueCount", ReplyAction="*")]
+        System.Threading.Tasks.Task<CalculatorWebApplication.CalculatorService.GetValueCountResponse> GetValueCountAsync(CalculatorWebApplication.CalculatorService.GetValueCountRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -112,6 +119,74 @@ namespace CalculatorWebApplication.CalculatorService {
         
         public ConvertToBrailleResponseBody(string ConvertToBrailleResult) {
             this.ConvertToBrailleResult = ConvertToBrailleResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetValueCountRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetValueCount", Namespace="http://tempuri.org/", Order=0)]
+        public CalculatorWebApplication.CalculatorService.GetValueCountRequestBody Body;
+        
+        public GetValueCountRequest() {
+        }
+        
+        public GetValueCountRequest(CalculatorWebApplication.CalculatorService.GetValueCountRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetValueCountRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string text;
+        
+        public GetValueCountRequestBody() {
+        }
+        
+        public GetValueCountRequestBody(string text) {
+            this.text = text;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetValueCountResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetValueCountResponse", Namespace="http://tempuri.org/", Order=0)]
+        public CalculatorWebApplication.CalculatorService.GetValueCountResponseBody Body;
+        
+        public GetValueCountResponse() {
+        }
+        
+        public GetValueCountResponse(CalculatorWebApplication.CalculatorService.GetValueCountResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetValueCountResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int GetValueCountResult;
+        
+        public GetValueCountResponseBody() {
+        }
+        
+        public GetValueCountResponseBody(int GetValueCountResult) {
+            this.GetValueCountResult = GetValueCountResult;
         }
     }
     
@@ -197,6 +272,31 @@ namespace CalculatorWebApplication.CalculatorService {
             inValue.Body = new CalculatorWebApplication.CalculatorService.ConvertToBrailleRequestBody();
             inValue.Body.text = text;
             return ((CalculatorWebApplication.CalculatorService.CalculatorWebServiceSoap)(this)).ConvertToBrailleAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        CalculatorWebApplication.CalculatorService.GetValueCountResponse CalculatorWebApplication.CalculatorService.CalculatorWebServiceSoap.GetValueCount(CalculatorWebApplication.CalculatorService.GetValueCountRequest request) {
+            return base.Channel.GetValueCount(request);
+        }
+        
+        public int GetValueCount(string text) {
+            CalculatorWebApplication.CalculatorService.GetValueCountRequest inValue = new CalculatorWebApplication.CalculatorService.GetValueCountRequest();
+            inValue.Body = new CalculatorWebApplication.CalculatorService.GetValueCountRequestBody();
+            inValue.Body.text = text;
+            CalculatorWebApplication.CalculatorService.GetValueCountResponse retVal = ((CalculatorWebApplication.CalculatorService.CalculatorWebServiceSoap)(this)).GetValueCount(inValue);
+            return retVal.Body.GetValueCountResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<CalculatorWebApplication.CalculatorService.GetValueCountResponse> CalculatorWebApplication.CalculatorService.CalculatorWebServiceSoap.GetValueCountAsync(CalculatorWebApplication.CalculatorService.GetValueCountRequest request) {
+            return base.Channel.GetValueCountAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<CalculatorWebApplication.CalculatorService.GetValueCountResponse> GetValueCountAsync(string text) {
+            CalculatorWebApplication.CalculatorService.GetValueCountRequest inValue = new CalculatorWebApplication.CalculatorService.GetValueCountRequest();
+            inValue.Body = new CalculatorWebApplication.CalculatorService.GetValueCountRequestBody();
+            inValue.Body.text = text;
+            return ((CalculatorWebApplication.CalculatorService.CalculatorWebServiceSoap)(this)).GetValueCountAsync(inValue);
         }
     }
 }

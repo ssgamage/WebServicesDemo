@@ -23,12 +23,16 @@ namespace CalculatorWebApplication
 
             // Call the web service based on the selected option
             double result = 0.0; // Initialize result
+            double result1 = 0.0;
+            double result2 = 0.0;
             //string result1 = "";
 
             if (selectedOption == "option1")
             {
                 CalculatorService.CalculatorWebServiceSoapClient client = new CalculatorService.CalculatorWebServiceSoapClient();
                 result = client.CircleA(firstNumber);
+                result1 = result / 0.18095573684677;
+                result2 = result1 * 0.0002617994;
                 //resultImage.ImageUrl = "brailleImgC.jpg"; // Set the image source for option
             }
 
@@ -36,6 +40,8 @@ namespace CalculatorWebApplication
             {
                 CalculatorService.CalculatorWebServiceSoapClient client = new CalculatorService.CalculatorWebServiceSoapClient();
                 result = client.TriangleA(firstNumber, secondNumber);
+                result1 = result / 0.18095573684677;
+                result2 = result1 * 0.0002617994;
                 //resultImage.ImageUrl = "brailleImgT.jpg"; // Set the image source for option
             }
 
@@ -43,6 +49,8 @@ namespace CalculatorWebApplication
             {
                 CalculatorService.CalculatorWebServiceSoapClient client = new CalculatorService.CalculatorWebServiceSoapClient();
                 result = client.SquareA(firstNumber);
+                result1 = result / 0.18095573684677;
+                result2 = result1 * 0.0002617994;
                 //resultImage.ImageUrl = "brailleImgS.jpg"; // Set the image source for option
             }
 
@@ -50,6 +58,8 @@ namespace CalculatorWebApplication
             {
                 CalculatorService.CalculatorWebServiceSoapClient client = new CalculatorService.CalculatorWebServiceSoapClient();
                 result = client.RectangleA(firstNumber, secondNumber);
+                result1 = result / 0.18095573684677;
+                result2 = result1 * 0.0002617994;
                 //resultImage.ImageUrl = "brailleImgR.jpg"; // Set the image source for option
             }
 
@@ -64,6 +74,8 @@ namespace CalculatorWebApplication
 
             // Display the result
             lblResult.Text = result.ToString();
+            lblResult1.Text = result1.ToString();
+            lblResult2.Text = result2.ToString();
             //lblResult1.Text = result1;
 
             // Set the image source based on the selected option
@@ -91,13 +103,31 @@ namespace CalculatorWebApplication
 
         protected void btnConvert_Click(object sender, EventArgs e)
         {
+            //double valueCount1 = 0.0;
             // Call the existing WebMethod from your web service to perform the conversion
-            CalculatorService.CalculatorWebServiceSoapClient proxy = new CalculatorService.CalculatorWebServiceSoapClient(); // Replace YourWebService with your actual web service reference
+            CalculatorService.CalculatorWebServiceSoapClient proxy = new CalculatorService.CalculatorWebServiceSoapClient();
+
             string userInput = txtInput.Text;
+
+            // Call the ConvertToBraille method
             string brailleResult = proxy.ConvertToBraille(userInput);
+
+            // Get the value count from the response
+            int valueCount = GetValueCount(proxy, userInput);
 
             // Display the Braille result in the Label
             lblBrailleResult.Text = brailleResult;
+            lblBrailleResult1.Text = valueCount.ToString();
+            lblBrailleResult2.Text = (valueCount* 0.0002617994).ToString();
+        }
+
+        // Helper method to get the value count from the web service
+        private int GetValueCount(CalculatorService.CalculatorWebServiceSoapClient proxy, string userInput)
+        {
+            // Call the web service method to get the value count
+            int valueCount = proxy.GetValueCount(userInput);
+
+            return valueCount;
         }
     }
 }

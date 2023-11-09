@@ -74,6 +74,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetValueCount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="text" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetValueCountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetValueCountResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="CircleASoapIn">
@@ -106,6 +120,12 @@
   <wsdl:message name="ConvertToBrailleSoapOut">
     <wsdl:part name="parameters" element="tns:ConvertToBrailleResponse" />
   </wsdl:message>
+  <wsdl:message name="GetValueCountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetValueCount" />
+  </wsdl:message>
+  <wsdl:message name="GetValueCountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetValueCountResponse" />
+  </wsdl:message>
   <wsdl:portType name="CalculatorWebServiceSoap">
     <wsdl:operation name="CircleA">
       <wsdl:input message="tns:CircleASoapIn" />
@@ -126,6 +146,10 @@
     <wsdl:operation name="ConvertToBraille">
       <wsdl:input message="tns:ConvertToBrailleSoapIn" />
       <wsdl:output message="tns:ConvertToBrailleSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetValueCount">
+      <wsdl:input message="tns:GetValueCountSoapIn" />
+      <wsdl:output message="tns:GetValueCountSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="CalculatorWebServiceSoap" type="tns:CalculatorWebServiceSoap">
@@ -175,6 +199,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetValueCount">
+      <soap:operation soapAction="http://tempuri.org/GetValueCount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="CalculatorWebServiceSoap12" type="tns:CalculatorWebServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -216,6 +249,15 @@
     </wsdl:operation>
     <wsdl:operation name="ConvertToBraille">
       <soap12:operation soapAction="http://tempuri.org/ConvertToBraille" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetValueCount">
+      <soap12:operation soapAction="http://tempuri.org/GetValueCount" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

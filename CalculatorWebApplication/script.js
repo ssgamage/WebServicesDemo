@@ -47,7 +47,7 @@
         inputFields.appendChild(textbox6);
     } /*else if (selectedOption === "option5") {
         //resultImage.src = "brailleImgS.jpg"; // Set the image source for option1
-        var textbox4 = document.createElement("input");
+        var textbox7 = document.createElement("input");
         textbox7.type = "text";
         textbox7.name = "txtFirstLetter"; // ASP.NET TextBox ID
         textbox7.placeholder = "Enter your text";
