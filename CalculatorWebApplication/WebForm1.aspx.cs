@@ -72,9 +72,15 @@ namespace CalculatorWebApplication
             }*/
             // Add more cases for other options...
 
+            // Round the double to the nearest integer
+            double roundedNumber = Math.Round(result1);
+
+            // Format the rounded number without decimals
+            string formattedNumber = roundedNumber.ToString("0");
+
             // Display the result
             lblResult.Text = result.ToString();
-            lblResult1.Text = result1.ToString();
+            lblResult1.Text = formattedNumber.ToString();
             lblResult2.Text = result2.ToString();
             //lblResult1.Text = result1;
 

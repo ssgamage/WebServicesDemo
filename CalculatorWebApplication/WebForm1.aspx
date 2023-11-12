@@ -9,7 +9,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <table border="1">
+        <table border="1" style="margin: auto;">
             <tr>
                 <th>Shape Calculator</th>
                 <th>Braille Convertor</th>
